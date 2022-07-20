@@ -52,9 +52,17 @@ def login():
 def register():
     msg = ''
     if request.method == 'POST' :
-        username = request.form['username']
+        name = request.form['name']
         email = request.form['email']
+	phone= request.form['phone']
+	city= request.form['city']
+	infect= request.form['infect']
+	blood= request.form['blood']
         password = request.form['password']
+        
+
+
+
         sql = "SELECT * FROM users WHERE username =?"
         stmt = ibm_db.prepare(conn, sql)
         ibm_db.bind_param(stmt,1,username)
