@@ -139,6 +139,7 @@ def request():
            
             ibm_db.execute(prep_stmt)
             msg = ' Requested Successfully!'
+	    return render_template('donors.html', msg = msg)
         else:
             msg = 'Incorrect username / password !'
     return render_template('login.html', msg = msg)
@@ -203,7 +204,7 @@ def logout():
    session.pop('loggedin', None)
    session.pop('id', None)
    session.pop('username', None)
-   return render_template('home.html')
+   return render_template('register.html')
 
 
     
